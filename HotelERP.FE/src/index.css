@@ -1,0 +1,405 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ASTERIA RESORT × LOTTE DESIGN SYSTEM — GLOBAL TOKENS
+   ============================================================ */
+:root {
+  /* Gold accent */
+  --gold:        #b8956a;
+  --gold-dark:   #9a7b52;
+  --gold-light:  #c9a97a;
+
+  /* Dark surfaces */
+  --dark-900:    #0a0a0a;
+  --dark-800:    #111111;
+  --dark-700:    #1a1a1a;
+  --dark-600:    #222222;
+
+  /* Light surfaces */
+  --light-50:    #fafafa;
+  --light-100:   #f5f5f5;
+  --light-200:   #e5e5e5;
+
+  /* Text */
+  --text-primary:   #18181b;
+  --text-secondary: #71717a;
+  --text-muted:     #a1a1aa;
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', 'Times New Roman', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================================
+   BASE RESET & GLOBALS
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--light-50);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.font-serif  { font-family: var(--font-serif); }
+.font-sans   { font-family: var(--font-sans); }
+.text-gold   { color: var(--gold); }
+.bg-dark     { background-color: var(--dark-800); }
+
+/* ============================================================
+   LOTTE SHARED COMPONENTS
+   ============================================================ */
+
+/* ─── Navbar shared ─────────────────────────────────────── */
+.lotte-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  transition: all 500ms ease;
+}
+
+.lotte-header.scrolled {
+  background-color: var(--dark-800);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.lotte-nav-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  transition: color 300ms;
+  position: relative;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.lotte-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 300ms ease;
+}
+
+.lotte-nav-link:hover {
+  color: var(--gold);
+}
+
+.lotte-nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Gold CTA Button ────────────────────────────────────── */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(184,149,106,0.35);
+}
+
+/* ─── Outlined button ────────────────────────────────────── */
+.btn-outline-white {
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  background: transparent;
+  padding: 10px 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.btn-outline-white:hover {
+  background: white;
+  color: var(--dark-800);
+}
+
+/* ─── Section label (gold uppercase tag) ─────────────────── */
+.section-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ─── Divider gold line ──────────────────────────────────── */
+.gold-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px 0;
+}
+
+/* ============================================================
+   ARTICLE MODAL (shared between pages)
+   ============================================================ */
+.article-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.article-modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.article-modal-container {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  transition: transform 300ms ease;
+  position: relative;
+}
+
+.article-modal-overlay.show .article-modal-container {
+  transform: scale(1);
+}
+
+.article-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.15);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 200ms;
+}
+
+.article-modal-close:hover {
+  background: rgba(0,0,0,0.35);
+}
+
+.article-modal-header-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .article-modal-header-img { height: 340px; }
+}
+
+.article-modal-body {
+  padding: 32px 40px 48px;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .article-modal-body { padding: 48px 56px 64px; }
+}
+
+.article-modal-title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.article-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--light-200);
+}
+
+.article-modal-content {
+  color: #52525b;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.article-modal-content p + p {
+  margin-top: 16px;
+}
+
+/* ============================================================
+   ADMIN LAYOUT — ANT DESIGN OVERRIDE
+   ============================================================ */
+
+/* Ant Design sidebar override to match Lotte dark theme */
+.ant-layout-sider {
+  background: var(--dark-800) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: rgba(184, 149, 106, 0.15) !important;
+  border-right: 2px solid var(--gold) !important;
+}
+
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background-color: rgba(255,255,255,0.05) !important;
+  color: var(--gold) !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-title-content,
+.ant-menu-dark .ant-menu-item-selected .anticon {
+  color: var(--gold) !important;
+}
+
+/* ============================================================
+   ROOM TYPE GALLERY & CAROUSEL (RESPONSIVE)
+   ============================================================ */
+.room-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 992px) {
+  .room-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.room-gallery-carousel {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  background-color: #f5f5f5;
+}
+
+@keyframes roomFadeIn {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.room-fade-in {
+  animation: roomFadeIn 600ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@media (min-width: 768px) {
+  .room-gallery-carousel {
+    height: 400px;
+  }
+}
+
+/* ─── Room type scroll cards ─── */
+.room-card-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 220px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2.5px solid transparent;
+  transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.room-card-item.selected {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(184, 149, 106, 0.35);
+}
+
+.room-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.room-card-item:hover .room-card-img {
+  transform: scale(1.08);
+}
+
+.room-card-item.selected .room-card-img {
+  transform: scale(1.04);
+}
+
+.room-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+  transition: all 300ms ease;
+}
+
+.room-card-item.selected .room-card-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(184,149,106,0.15) 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(184,149,106,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }

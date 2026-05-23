@@ -1,0 +1,529 @@
+/* HomePage.css */
+@reference "tailwindcss";
+
+.homepage-wrapper * {
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+.homepage-wrapper {
+    @apply text-gray-800 bg-[#262b3f] overflow-x-hidden selection:bg-[#b4976c] selection:text-white;
+}
+
+/* ==================== 1. HEADER & HERO ==================== */
+.hero-section {
+    @apply relative h-screen flex flex-col items-center justify-center text-center;
+}
+
+.hero-bg {
+    @apply absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-1000 ease-in-out;
+}
+
+.hero-overlay {
+    @apply absolute inset-0 bg-[#262b3f]/40 mix-blend-multiply;
+}
+
+.header-navbar {
+    @apply absolute top-0 left-0 w-full z-50 flex justify-between items-center py-8 px-8 md:px-16 text-white border-b border-white/20;
+}
+
+.logo-text {
+    @apply text-3xl font-serif tracking-[0.3em] uppercase;
+}
+
+.nav-links {
+    @apply hidden md:flex gap-10 text-[11px] tracking-[0.2em] uppercase font-semibold;
+}
+
+.nav-item {
+    @apply hover:text-[#b4976c] transition;
+}
+
+.btn-book-now {
+    @apply bg-[#b4976c]/90 backdrop-blur-sm text-white px-8 py-3 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-[#b4976c] transition rounded-full;
+}
+
+/* Auth Buttons Group */
+.navbar-auth-group {
+    @apply flex items-center gap-3;
+}
+
+.btn-login-outline {
+    @apply border border-white/70 text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.15em] font-bold rounded-full backdrop-blur-sm transition-all duration-300;
+    background: transparent;
+}
+.btn-login-outline:hover {
+    @apply border-white bg-white/10;
+}
+
+.btn-register-filled {
+    @apply bg-[#b4976c] text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 shadow-lg;
+}
+.btn-register-filled:hover {
+    @apply bg-[#c9a97b] shadow-[0_0_20px_rgba(180,151,108,0.5)];
+}
+
+.hero-title-container {
+    @apply relative z-10 px-4 max-w-5xl mt-[-100px];
+}
+
+.hero-title {
+    @apply text-5xl md:text-7xl font-serif text-white leading-tight mb-6 drop-shadow-lg font-light;
+}
+
+/* BOOKING BAR */
+.booking-bar-wrapper {
+    @apply absolute -bottom-16 w-[90%] md:w-[80%] max-w-6xl z-20 shadow-[0_20px_50px_rgba(0,0,0,0.3)];
+}
+
+.booking-bar-inner {
+    @apply bg-[#262b3f] p-8 pb-10;
+}
+
+.booking-grid {
+    @apply grid grid-cols-1 md:grid-cols-5 gap-6;
+}
+
+.booking-col {
+    @apply flex flex-col gap-2;
+}
+
+.booking-col-span-2 {
+    @apply col-span-2 flex flex-col gap-2;
+}
+
+.booking-label-group {
+    @apply flex justify-between text-white text-[10px] tracking-widest uppercase font-bold px-2;
+}
+
+.booking-label {
+    @apply text-white text-[10px] tracking-widest uppercase font-bold px-2;
+}
+
+.booking-input-group {
+    @apply flex items-center border border-gray-500 rounded-full px-6 py-3 bg-transparent;
+}
+
+.booking-input {
+    @apply bg-transparent text-white w-full outline-none text-sm placeholder-gray-400;
+}
+
+.booking-input-right {
+    @apply bg-transparent text-white w-full text-right outline-none text-sm placeholder-gray-400;
+}
+
+.booking-input-separator {
+    @apply text-gray-500 mx-4;
+}
+
+.booking-select {
+    @apply border border-gray-500 rounded-full px-6 py-3 bg-transparent text-gray-400 text-sm outline-none appearance-none cursor-pointer;
+}
+
+.btn-create-booking {
+    @apply w-full bg-[#b4976c] text-white py-5 uppercase tracking-[0.2em] text-[11px] font-bold hover:bg-[#9a7e58] transition;
+}
+
+/* ==================== 2. ROOM & ESCAPE SECTION ==================== */
+.room-section {
+    @apply bg-[#262b3f] pt-32 pb-10;
+}
+
+.room-section-inner {
+    @apply bg-white rounded-tl-[80px] w-full pt-24 px-8 md:px-20;
+}
+
+.room-content-wrapper {
+    @apply max-w-7xl mx-auto flex flex-col md:flex-row gap-16 mb-16;
+}
+
+.room-text-col {
+    @apply w-full md:w-1/2 pt-10;
+}
+
+.section-subtitle-dark {
+    @apply text-[#262b3f] tracking-[0.2em] uppercase text-[10px] font-bold mb-4;
+}
+
+.section-title-dark {
+    @apply text-4xl md:text-5xl font-serif text-[#262b3f] mb-8 leading-snug;
+}
+
+.section-desc-light {
+    @apply text-gray-400 text-sm leading-relaxed mb-12 max-w-md;
+}
+
+.hotline-wrapper {
+    @apply flex items-center gap-6;
+}
+
+.hotline-label {
+    @apply text-gray-400 text-[10px] tracking-widest uppercase font-bold;
+}
+
+.hotline-number {
+    @apply text-3xl text-[#b4976c] font-serif;
+}
+
+.room-image-col {
+    @apply w-full md:w-1/2;
+}
+
+.room-main-image {
+    @apply w-full h-[450px] object-cover rounded-xl shadow-2xl;
+}
+
+.room-cards-scroll {
+    @apply max-w-7xl mx-auto flex gap-6 overflow-x-auto pb-16;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.room-cards-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.room-card {
+    @apply min-w-[280px] h-[380px] relative cursor-pointer overflow-hidden rounded-md;
+}
+
+.room-card-image {
+    @apply w-full h-full object-cover transition duration-700;
+}
+
+.room-card:hover .room-card-image {
+    @apply scale-110;
+}
+
+.room-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent;
+}
+
+.room-card-title {
+    @apply absolute bottom-6 left-6 text-white tracking-[0.2em] text-[10px] uppercase font-bold;
+}
+
+/* ==================== 3. RESORT EXPERIENCE ==================== */
+.experience-section {
+    @apply relative bg-[#b4976c] flex flex-col md:flex-row min-h-[600px];
+}
+
+.experience-bg-right {
+    @apply hidden md:block absolute right-0 top-0 w-[40%] h-full bg-[#262b3f];
+}
+
+.experience-wrapper {
+    @apply w-full max-w-7xl mx-auto relative flex flex-col md:flex-row items-center pt-20 pb-20 px-8;
+}
+
+.experience-text-box {
+    @apply w-full md:w-[45%] bg-[#262b3f] rounded-tl-[80px] p-12 md:p-16 z-10 shadow-2xl relative md:left-10 text-white;
+}
+
+.section-subtitle-white {
+    @apply text-white/60 tracking-[0.2em] uppercase text-[10px] font-bold mb-4;
+}
+
+.section-title-white {
+    @apply text-3xl md:text-4xl font-serif mb-6 leading-snug;
+}
+
+.video-placeholder {
+    @apply relative w-full h-48 bg-black rounded-lg overflow-hidden flex items-center justify-center cursor-pointer mb-10;
+}
+
+.video-cover {
+    @apply absolute inset-0 w-full h-full object-cover opacity-60 transition;
+}
+
+.video-placeholder:hover .video-cover {
+    @apply opacity-40;
+}
+
+.video-play-btn {
+    @apply w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center z-10 shadow-lg transition;
+}
+
+.video-placeholder:hover .video-play-btn {
+    @apply scale-110;
+}
+
+.video-play-icon {
+    @apply w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-2;
+}
+
+.experience-booking {
+    @apply flex justify-between items-center border-t border-white/10 pt-8;
+}
+
+.experience-booking-label {
+    @apply text-[10px] tracking-widest uppercase font-bold text-white/60;
+}
+
+.experience-booking-number {
+    @apply text-2xl text-[#b4976c] font-serif;
+}
+
+.experience-image-wrapper {
+    @apply w-full md:w-[65%] mt-10 md:mt-0 z-0 relative md:-left-10;
+}
+
+.experience-image {
+    @apply w-full h-[600px] object-cover rounded-xl shadow-2xl;
+}
+
+/* ==================== 4. RESTAURANT SECTION ==================== */
+.restaurant-section {
+    @apply bg-[#262b3f] py-32 px-8;
+}
+
+.restaurant-wrapper {
+    @apply max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center;
+}
+
+.restaurant-image-col {
+    @apply w-full md:w-1/2 relative;
+}
+
+.restaurant-bg-block {
+    @apply absolute -bottom-10 -right-10 w-4/5 h-[80%] bg-[#b4976c] rounded-bl-[60px] z-0;
+}
+
+.restaurant-hours-box {
+    @apply absolute bottom-10 left-10 text-white text-center w-full pr-16;
+}
+
+.restaurant-hours-title {
+    @apply text-[10px] tracking-widest font-bold uppercase mb-2;
+}
+
+.restaurant-hours-time {
+    @apply text-sm font-serif;
+}
+
+.btn-detail {
+    @apply mt-6 bg-[#262b3f] text-[#b4976c] px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-white transition;
+}
+
+.restaurant-main-image {
+    @apply relative z-10 w-[90%] h-[500px] object-cover rounded-tr-[60px] shadow-2xl;
+}
+
+.restaurant-text-col {
+    @apply w-full md:w-1/2 text-white mt-16 md:mt-0;
+}
+
+.section-subtitle-gold {
+    @apply text-[#b4976c] tracking-[0.2em] uppercase text-[10px] font-bold mb-4;
+}
+
+.restaurant-title {
+    @apply text-4xl font-serif mb-6 leading-snug;
+}
+
+.accordion-container {
+    @apply flex flex-col gap-4;
+}
+
+.accordion-item {
+    @apply border border-gray-600 rounded-md p-5 flex justify-between items-center cursor-pointer hover:border-[#b4976c] transition;
+}
+
+.accordion-title {
+    @apply text-sm uppercase tracking-widest font-serif;
+}
+
+/* ==================== 5. ACTIVITIES & SERVICES GRID ==================== */
+.activities-section {
+    @apply bg-[#262b3f] py-16 px-8 border-t border-white/5;
+}
+
+.activities-wrapper {
+    @apply max-w-7xl mx-auto flex flex-col lg:flex-row gap-12;
+}
+
+.activities-header-col {
+    @apply lg:w-1/4;
+}
+
+.activities-title {
+    @apply text-4xl font-serif text-white mb-8 leading-snug;
+}
+
+.btn-read-more {
+    @apply bg-[#b4976c] text-[#262b3f] px-8 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-white transition;
+}
+
+.activities-grid {
+    @apply lg:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.activity-card {
+    @apply border border-gray-600/50 rounded-lg p-8 hover:border-[#b4976c] transition cursor-pointer;
+}
+
+.activity-icon {
+    @apply text-[#b4976c] text-3xl mb-6;
+}
+
+.activity-title {
+    @apply text-white text-sm uppercase tracking-widest font-serif mb-4;
+}
+
+.activity-desc {
+    @apply text-gray-400 text-xs leading-relaxed transition;
+}
+
+.activity-card:hover .activity-desc {
+    @apply text-gray-300;
+}
+
+/* ==================== 6. NEWS & WEDDING PACKAGE ==================== */
+.news-wedding-section {
+    @apply bg-[#262b3f] pt-20 pb-0 border-t border-white/5;
+}
+
+.news-wrapper {
+    @apply max-w-7xl mx-auto px-8 mb-20 text-center;
+}
+
+.news-title {
+    @apply text-4xl font-serif text-white mb-12 text-center leading-snug;
+}
+
+.news-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center;
+}
+
+.news-card {
+    @apply flex flex-col bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition duration-500;
+}
+
+.news-card-img {
+    @apply w-full h-56 object-cover;
+}
+
+.news-card-content {
+    @apply w-full p-6 flex flex-col justify-center items-center flex-1;
+}
+
+.news-card-title {
+    @apply text-xl font-serif text-[#262b3f] mb-4 leading-snug text-center;
+}
+
+.news-card-date {
+    @apply text-[#b4976c] text-[10px] tracking-widest uppercase font-bold mt-auto text-center;
+}
+
+/* Removed Article Modal Styles to index.css */
+
+.wedding-section {
+    @apply relative pb-24;
+}
+
+.wedding-bg-layer {
+    @apply absolute left-0 top-0 w-2/3 h-full bg-[#b4976c] z-0 rounded-tr-[100px];
+}
+
+.wedding-wrapper {
+    @apply max-w-7xl mx-auto px-8 relative z-10 pt-16;
+}
+
+.wedding-title {
+    @apply text-3xl font-serif text-white mb-10;
+}
+
+.wedding-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.wedding-pkg-card {
+    @apply bg-white p-10 rounded-xl shadow-2xl flex flex-col h-80 hover:scale-105 transition duration-500 border-l-4 border-[#b4976c];
+}
+
+.wedding-pkg-name {
+    @apply text-[#262b3f] text-[10px] tracking-[0.2em] uppercase font-bold mb-4;
+}
+
+.wedding-pkg-price {
+    @apply text-3xl font-serif text-[#262b3f] mb-6;
+}
+
+.wedding-pkg-features {
+    @apply text-gray-400 text-xs space-y-2 mb-auto;
+}
+
+.wedding-pkg-btn {
+    @apply text-left text-[#b4976c] text-[10px] uppercase tracking-widest font-bold mt-6 hover:text-[#262b3f] transition;
+}
+
+/* ==================== 7. FOOTER ==================== */
+.footer-section {
+    @apply bg-[#262b3f] pt-24 pb-10 border-t border-white/10;
+}
+
+.footer-top-grid {
+    @apply max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-5 gap-12 mb-16;
+}
+
+.footer-col-main {
+    @apply col-span-2;
+}
+
+.footer-logo {
+    @apply text-3xl font-serif tracking-[0.3em] uppercase text-white mb-6;
+}
+
+.footer-address {
+    @apply text-gray-400 text-xs leading-relaxed mb-4;
+}
+
+.footer-phone {
+    @apply text-gray-400 text-xs mb-8 flex items-center gap-2 font-bold tracking-widest;
+}
+
+.footer-phone-icon {
+    @apply text-[#e83e8c] text-sm;
+}
+
+.footer-map-wrapper {
+    @apply w-full max-w-[320px] rounded-[20px] overflow-hidden mb-10 border-4 border-white shadow-xl bg-gray-200;
+}
+
+.footer-newsletter-title {
+    @apply text-[#b4976c] text-xl font-serif mb-6;
+}
+
+.newsletter-form {
+    @apply flex flex-col gap-3 max-w-xs;
+}
+
+.newsletter-input {
+    @apply w-full bg-white px-4 py-3 outline-none text-sm rounded-sm;
+}
+
+.newsletter-btn {
+    @apply w-full bg-[#b4976c] text-white uppercase tracking-widest text-[10px] font-bold py-3 hover:bg-[#9a7e58] transition rounded-sm;
+}
+
+.footer-col-title {
+    @apply text-[#b4976c] text-[10px] tracking-widest uppercase font-bold mb-8;
+}
+
+.footer-links-list {
+    @apply space-y-4 text-xs font-semibold text-white/80 uppercase tracking-wider;
+}
+
+.footer-link {
+    @apply hover:text-[#b4976c] transition;
+}
+
+.gallery-grid {
+    @apply grid grid-cols-3 gap-2;
+}
+
+.gallery-img {
+    @apply w-full h-16 object-cover cursor-pointer hover:opacity-70 transition;
+}
+
+.footer-bottom {
+    @apply max-w-7xl mx-auto px-8 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#b4976c] font-serif;
+}
